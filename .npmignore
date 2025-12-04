@@ -1,0 +1,8 @@
+# Ignore everything in src/cli except index.js if you want only the CLI
+# Or keep src/ for library, but ignore tests, configs, etc.
+node_modules
+*.log
+.DS_Store
+.env
+.vscode
+*.local

@@ -23,12 +23,4 @@ export function createCommand(projectName) {
 
   console.log(`[Proxtem] Project "${projectName}" created from template!`);
 
-  // Auto-install dependencies
-  try {
-    console.log('[Proxtem] Installing dependencies...');
-    execSync('npm install', { cwd: targetPath, stdio: 'inherit' });
-    console.log('[Proxtem] Dependencies installed!');
-  } catch (err) {
-    console.error('[Proxtem] Failed to install dependencies. You may need to run "npm install" manually.');
-  }
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxtem Advanced</title>
+
+  <!-- UV Core Scripts (these will exist in your advanced template folder) -->
+  <script src="/uv/uv.bundle.js"></script>
+  <script src="/uv/uv.config.js"></script>
+  <script src="/uv/uv.sw.js"></script>
+</head>
+
+<body>
+  <h1>Advanced Proxtem Proxy</h1>
+
+  <input id="urlInput" type="text" placeholder="Enter URL..." autocomplete="off" />
+  <button id="goBtn">Go</button>
+
+  <script>
+    const input = document.getElementById("urlInput");
+    const button = document.getElementById("goBtn");
+
+    // Auto-add https://
+    function normalizeURL(url) {
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        return "https://" + url;
+      }
+      return url;
+    }
+
+    async function go() {
+      let url = normalizeURL(input.value.trim());
+      if (!url) return;
+
+      // Use UV encoding
+      let encoded = __uv$config.encodeUrl(url);
+
+      // Navigate to proxied page
+      window.location.href = "/service/" + encoded;
+    }
+
+    button.onclick = go;
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") go();
+    });
+
+    // Register SW
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/uv.sw.js", {
+        scope: __uv$config.prefix
+      });
+    }
+  </script>
+</body>
+</html>

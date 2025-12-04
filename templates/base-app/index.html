@@ -1,9 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Proxtem App</title>
 </head>
 <body>
   <h1>Welcome to your Proxtem project!</h1>
+  
+  <input type="text" id="urlInput" placeholder="Enter URL">
+  <button id="goBtn">Go</button>
+
+  <script>
+    const input = document.getElementById('urlInput');
+    const button = document.getElementById('goBtn');
+
+    button.addEventListener('click', () => {
+      const url = input.value.trim();
+      if (url) {
+        window.location.href = url;
+      }
+    });
+
+    // Optional: allow Enter key to trigger "Go"
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        button.click();
+      }
+    });
+  </script>
 </body>
 </html>

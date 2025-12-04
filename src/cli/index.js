@@ -4,13 +4,18 @@ import { createCommand } from './create.js';
 import { devCommand } from './dev.js';
 import { deployRenderCommand } from './deploy-render.js';
 import { deployVercelCommand } from './deploy-vercel.js';
-
+import { advancedCreateCommand } from './advanced-create.js';
 const program = new Command();
 
 program
   .name('proxtem')
   .description('CLI to manage Proxtem proxies and apps')
   .version('0.1.0');
+
+program
+  .command('advanced-create <name>')
+  .description('Create a full Ultraviolet-based proxy (advanced)')
+  .action(advancedCreateCommand);
 
 program
   .command('create <name>')

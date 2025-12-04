@@ -11,22 +11,22 @@
   <button id="goBtn">Go</button>
 
   <script>
-    const input = document.getElementById('urlInput');
-    const button = document.getElementById('goBtn');
+  const input = document.getElementById('urlInput');
+  const button = document.getElementById('goBtn');
 
-    button.addEventListener('click', () => {
-      const url = input.value.trim();
-      if (url) {
-        window.location.href = url;
-      }
-    });
+  button.addEventListener('click', () => {
+    const url = input.value.trim();
+    if (url) {
+      // Load through Proxtem proxy instead of direct navigation
+      window.location.href = `/proxy?url=` + encodeURIComponent(url);
+    }
+  });
 
-    // Optional: allow Enter key to trigger "Go"
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        button.click();
-      }
-    });
-  </script>
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      button.click();
+    }
+  });
+</script>
 </body>
 </html>

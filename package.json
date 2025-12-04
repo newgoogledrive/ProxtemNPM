@@ -1,7 +1,7 @@
 {
   "name": "@newgoogledrive/proxtem",
   "version": "0.1.0",
-  "description": "A lightweight proxy toolkit with built-in CLI for creating, running, and deploying proxies.",
+  "description": "A lightweight proxy toolkit with CLI for creating, running, and deploying proxies",
   "type": "module",
   "main": "src/index.js",
   "bin": {
@@ -11,14 +11,7 @@
     "start": "node src/index.js",
     "dev": "node src/cli/index.js dev"
   },
-  "keywords": [
-    "proxy",
-    "express",
-    "ultraviolet",
-    "node",
-    "cli",
-    "proxtem"
-  ],
+  "keywords": ["proxy", "express", "cli", "ultraviolet", "node", "proxtem"],
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import express from 'express';
 import createProxy from '../server/basic-proxy.js';
-import { middleware } from '../server/express-middleware.js';
+import middleware from '../server/express-middleware.js';
 
 export function devCommand() {
   const app = createProxy('http://localhost:3000'); // Replace with your target

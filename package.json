@@ -1,6 +1,6 @@
 {
   "name": "proxtem",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A proxy server and CLI toolkit for app deployment",
   "main": "src/index.js",
   "bin": {
